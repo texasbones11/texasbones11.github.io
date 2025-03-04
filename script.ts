@@ -1,1 +1,1 @@
-console.log("Welcome to John Doe's Retro Basketball Site!");
+console.log("Welcome to Will Jones' Retro Basketball Site!");
