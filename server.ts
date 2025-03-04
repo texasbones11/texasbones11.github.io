@@ -3,7 +3,7 @@ import { serve } from "https://deno.land/std@0.152.0/http/server.ts";
 const PORT = 8000;
 
 const handler = async (req: Request): Promise<Response> => {
-  const filePath = `./src${new URL(req.url).pathname}`;
+  const filePath = `./${new URL(req.url).pathname}`;
 
   try {
     const file = await Deno.readFile(filePath);
