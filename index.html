@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HMRF4FY5MH"></script>
+  <!-- Partytown Snippet -->
   <script>
+    /* Partytown configuration */
+    partytown = {
+      debug: true // Enable debug mode for development
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@builder.io/partytown@latest/dist/partytown.js"></script>
+
+  <!-- Google tag (gtag.js) - Moved to Partytown -->
+  <script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-HMRF4FY5MH"></script>
+  <script type="text/partytown">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-HMRF4FY5MH');
   </script>
+
+  <!-- Meta tags -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Will Jones' Retro Basketball</title>
