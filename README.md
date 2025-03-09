@@ -13,16 +13,33 @@ This is a service Google provides to monitor website usage. It has a [Dashboard]
 
 #### Partytown
 This moves 3rd party scripts like google analytics off of the main thread in browsers for better performance.
-1. 
+1. Add a reference to the config
 ```
-<script src="https://cdn.jsdelivr.net/npm/@builder.io/partytown@latest/dist/partytown.js"></script>
+  <script>
+    /* Partytown configuration */
+    partytown = {
+      lib: '/partytown/',
+      debug: true // Enable debug mode for development
+    };
+  </script>
 ```
-2. Update the script in the html to refence partytown for the 3rd party apps only.
+2.
+```
+  <script src="https://cdn.jsdelivr.net/npm/@builder.io/partytown@latest/dist/partytown.js"></script>
+```
+3. Update the script in the html to refence partytown for the 3rd party apps only.
 ```
 - <script>...</script>
 + <script type="text/partytown">...</script>
+``` 
+4. copy the config files to the path in the reference
 ```
-3. 
+mkdir partytown
+cd partytown 
+wget --mirror --convert-links --adjust-extension --page-requisites --no-parent https://cdn.jsdelivr.net/npm/@builder.io/partytown@0.10.3/lib/
+mv cdn.jsdelivr.net/npm/@builder.io/partytown@0.10.3/lib/* .
+rm -rf cdn.jsdelivr.net
+```
 Steps:
 1. Create a Google tag in Google Analytics. It is html.
 2. Add in the header of each page of the website.
