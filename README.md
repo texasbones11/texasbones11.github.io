@@ -16,6 +16,7 @@ This is a service Google provides to monitor website usage. It has a [Dashboard]
 - Organization (company)
   - Analytics account (client company)
     - Analytics property (client website)
+
 Steps:
 1. Create a Google tag in Google Analytics. It is html.
 2. Add in the header of each page of the website.
