@@ -5,14 +5,15 @@
   <script>
     /* Partytown configuration */
     partytown = {
+      lib: 'https://cdn.jsdelivr.net/npm/@builder.io/partytown@latest/lib/', // Path to the library files
       debug: true // Enable debug mode for development
     };
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/@builder.io/partytown@0.10.3/lib/partytown-sw.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@builder.io/partytown@latest/lib/partytown.js"></script>
 
   <!-- Google tag (gtag.js) - Moved to Partytown -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HMRF4FY5MH"></script>
-  <script>
+  <script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-HMRF4FY5MH"></script>
+  <script type="text/partytown">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
