@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Rock Salt';
-  src: url('/assets/RockSalt-Regular') format('tff');
+  src: url('/assets/RockSalt-Regular.tff') format('truetype');
 }
 
 body {
