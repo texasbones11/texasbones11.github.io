@@ -23,9 +23,9 @@ This moves 3rd party scripts like google analytics off of the main thread in bro
     };
   </script>
 ```
-2.
+2. run in async
 ```
-  <script src="https://cdn.jsdelivr.net/npm/@builder.io/partytown@latest/dist/partytown.js"></script>
+  <script async src="https://cdn.jsdelivr.net/npm/@builder.io/partytown@latest/dist/partytown.js"></script>
 ```
 3. Update the script in the html to refence partytown for the 3rd party apps only.
 ```
