@@ -7,7 +7,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Retro', sans-serif;
-  background: url('/assets/background.jpg') no-repeat center center fixed;
+  background: url('/assets/background.webp') no-repeat center center fixed;
   background-size: cover;
   color: #ffcc00;
   text-align: center;
@@ -31,7 +31,7 @@ h1 {
 .basketball {
   width: 100px;
   height: 100px;
-  background: url('/assets/basketball.png') no-repeat center center;
+  background: url('/assets/basketball.webp') no-repeat center center;
   background-size: contain;
   margin: 20px auto;
   animation: spin 3s linear infinite;

@@ -49,3 +49,19 @@ This contains the parts of the website that are displayed.
  
 ## CSS
 Code that defines how the website looks on the browser. The code here is referenced in the html. 
+
+## Optimizations
+### Images
+1. convert image to webp
+  - This command converts, at a quality of 50 (0 is the worst; 100 is the best)
+```
+cwebp -q 50 images/flower1.jpg -o images/flower1.webp
+```
+2. Use the <picture> tag for webp images. this maintains support for old browsers
+```
+<picture>
+  <source type="image/webp" srcset="images/flower1.webp">
+  <source type="image/jpeg" srcset="images/flower1.jpg">
+  <img src="images/flower1.jpg">
+</picture>
+```
