@@ -1,6 +1,23 @@
-# Anatomy of a CDN website
+# Anatomy of an optimized website
+
+## Start project
+### Build astro project with bun
+Start with a basic install with dependencies.
+```
+bun create astro@latest <project-name>
+```
+### run a local web server
+```
+bun run dev
+```
+### build
+Creates a static version of the site in the `dist` folder
+```
+bun run build
+```
+
 ## html
-Code that displays what you see on the website. It contains different sections.
+Located in the `src/layouts/Layout.astro` file. This code displays what you see on the website. It contains different sections.
 
 ### Header
 This contains information on the website but is not displayed
@@ -11,38 +28,25 @@ This is a service Google provides to monitor website usage. It has a [Dashboard]
   - Analytics account (client company)
     - Analytics property (client website)
 
+Steps:
+1. Create a Google tag in Google Analytics. It is html.
+2. Add in the header of each page of the website.
+
 #### Partytown
 This moves 3rd party scripts like google analytics off of the main thread in browsers for better performance.
-1. Add a reference to the config
+1. Install partytown module
 ```
-  <script>
-    /* Partytown configuration */
-    partytown = {
-      lib: '/partytown/',
-      debug: true // Enable debug mode for development
-    };
-  </script>
+bun astro add partytown
 ```
 2. run in async
 ```
   <script async src="https://cdn.jsdelivr.net/npm/@builder.io/partytown@latest/dist/partytown.js"></script>
 ```
-3. Update the script in the html to refence partytown for the 3rd party apps only.
+3. Update the script in the html to refence partytown for the 3rd party apps only. Put it in the Google Analytics script.
 ```
 - <script>...</script>
 + <script type="text/partytown">...</script>
 ``` 
-4. copy the config files to the path in the reference
-```
-mkdir partytown
-cd partytown 
-wget --mirror --convert-links --adjust-extension --page-requisites --no-parent https://cdn.jsdelivr.net/npm/@builder.io/partytown@0.10.3/lib/
-mv cdn.jsdelivr.net/npm/@builder.io/partytown@0.10.3/lib/* .
-rm -rf cdn.jsdelivr.net
-```
-Steps:
-1. Create a Google tag in Google Analytics. It is html.
-2. Add in the header of each page of the website.
 
 ### Body
 This contains the parts of the website that are displayed.
