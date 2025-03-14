@@ -5,7 +5,6 @@ import partytown from '@astrojs/partytown';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://texasbones11.github.io',
-  base: '/',
+  output: 'static',
   integrations: [partytown()]
 });
