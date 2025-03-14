@@ -15,6 +15,12 @@ Creates a static version of the site in the `dist` folder
 ```
 bun run build
 ```
+#### Github pages
+Move the dist directory over to docs. Also disable jekyll, which will ignore special case directories if not.
+```
+mv dist docs
+touch docs/.nojekyll
+```
 
 ## html
 Located in the `src/layouts/Layout.astro` file. This code displays what you see on the website. It contains different sections.
