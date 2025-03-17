@@ -1,89 +1,192 @@
 ---
-import { Image } from "astro:assets";
-import type { ImageMetadata } from "astro";
-
-// Define the props for the component
-export interface Props {
-  headshotUrl: ImageMetadata;
-  name: string;
-  tagline: string;
-  description: string;
-}
-
-// Destructure the props
-const { headshotUrl, name, tagline, description } = Astro.props;
+// No props or dynamic data needed for this example
 ---
 
 <section class="hero">
-  <div class="hero-content">
-    <!-- Headshot Image -->
-    <div class="hero-headshot">
-      <Image
-        src={headshotUrl}
-        alt={`Headshot of ${name}`}
-        width={150}
-        height={150}
-        class="hero-headshot"
-        loading={"eager"}
-      />
-    </div>
-
-    <!-- Text Content -->
-    <div class="hero-text">
-      <h1 class="hero-name">{name}</h1>
-      <p class="hero-tagline">{tagline}</p>
-      <p class="hero-description">{description}</p>
-    </div>
-  </div>
+  <h1 class="hero-title">I'm Will Jones</h1>
+  <p class="hero-description">
+    I build
+    <span class="text-container">
+      <span class="animated-text fast">fast</span>
+      <span class="animated-text stuff">stuff</span>
+    </span>
+  </p>
 </section>
 
 <style>
-  /* Hero Section Styles */
   .hero {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Full viewport height */
-    background-color: #f0f0f0; /* Light gray background */
-    padding: 2rem;
-    text-align: center;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: flex-start; /* Align content to the left */
+    height: 100vh;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 0 10%; /* Add padding to the left */
   }
 
-  .hero-content {
-    max-width: 800px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-  }
-
-  /* Headshot Styles */
-  .hero-headshot {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%; /* Circular headshot */
-    object-fit: cover; /* Ensures the image fits well */
-    border: 4px solid #fff; /* Optional: Add a border */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  }
-
-  /* Text Styles */
-  .hero-name {
-    font-size: 2.5rem;
+  .hero-title {
+    font-size: 6rem; /* Larger font size */
+    font-weight: bold;
     margin: 0;
-    color: #333; /* Dark gray text */
-  }
-
-  .hero-tagline {
-    font-size: 1.5rem;
-    margin: 0;
-    color: #666; /* Medium gray text */
+    line-height: 1.1;
+    font-family: "Inter", sans-serif;
+    max-width: 80%; /* Prevent text from stretching too far */
   }
 
   .hero-description {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #444; /* Slightly lighter gray text */
-    max-width: 600px;
+    font-size: 1.5rem;
+    margin-top: 1rem; /* Add space between the title and description */
+    color: rgba(255, 255, 255, 0.8);
+    font-family: "Inter", sans-serif;
+  }
+
+  .text-container {
+    display: inline-flex; /* Use flexbox to align children */
+    align-items: center;
+    position: relative;
+    overflow: visible; /* Allow overflow to prevent cutting off text */
+    gap: 0.5rem; /* Add space between "fast" and "stuff" */
+  }
+
+  .animated-text {
+    position: relative;
+    display: inline-block;
+    white-space: nowrap; /* Prevent text from wrapping */
+  }
+
+  .fast {
+    animation: moveRight 6s infinite; /* Move "fast" to the right */
+  }
+
+  .stuff {
+    animation: moveLeft 6s infinite; /* Move "stuff" to the left */
+  }
+
+  @keyframes moveRight {
+    0%,
+    20% {
+      transform: translateX(0); /* Start position: before "stuff" */
+    }
+    40%,
+    60% {
+      transform: translateX(
+        calc(100% + 0.75rem)
+      ); /* Move to the right, after "stuff" */
+    }
+    80%,
+    100% {
+      transform: translateX(0); /* Return to start position */
+    }
+  }
+
+  @keyframes moveLeft {
+    0%,
+    20% {
+      transform: translateX(0); /* Start position: after "fast" */
+    }
+    40%,
+    60% {
+      transform: translateX(
+        calc(-90% - 0.5rem)
+      ); /* Move to the left, before "fast" */
+    }
+    80%,
+    100% {
+      transform: translateX(0); /* Return to start position */
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 4rem; /* Slightly smaller for tablets */
+    }
+
+    .hero-description {
+      font-size: 1.25rem;
+    }
+
+    .text-container {
+      gap: 0.75rem; /* Adjust spacing for smaller screens */
+    }
+
+    @keyframes moveRight {
+      0%,
+      20% {
+        transform: translateX(0);
+      }
+      40%,
+      60% {
+        transform: translateX(
+          calc(100% + 0.75rem)
+        ); /* Adjusted for smaller screens */
+      }
+      80%,
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes moveLeft {
+      0%,
+      20% {
+        transform: translateX(0);
+      }
+      40%,
+      60% {
+        transform: translateX(
+          calc(-90% - 0.75rem)
+        ); /* Adjusted for smaller screens */
+      }
+      80%,
+      100% {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title {
+      font-size: 3rem; /* Smaller for mobile */
+      max-width: 90%; /* Adjust for smaller screens */
+    }
+
+    .hero-description {
+      font-size: 1rem;
+    }
+
+    .text-container {
+      gap: 0.5rem; /* Adjust spacing for mobile */
+    }
+
+    @keyframes moveRight {
+      0%,
+      20% {
+        transform: translateX(0);
+      }
+      40%,
+      60% {
+        transform: translateX(calc(100% + 0.5rem)); /* Adjusted for mobile */
+      }
+      80%,
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes moveLeft {
+      0%,
+      20% {
+        transform: translateX(0);
+      }
+      40%,
+      60% {
+        transform: translateX(calc(-90% - 0.5rem)); /* Adjusted for mobile */
+      }
+      80%,
+      100% {
+        transform: translateX(0);
+      }
+    }
   }
 </style>

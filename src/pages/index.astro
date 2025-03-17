@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
+import Aboutme from "../components/Aboutme.astro";
 import Headshot from "../assets/headshot.webp";
 
 // Define the props for the Hero component
@@ -12,7 +13,8 @@ const description =
 ---
 
 <Layout>
-  <Hero
+  <Hero />
+  <Aboutme
     headshotUrl={Headshot}
     name={name}
     tagline={tagline}
