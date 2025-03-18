@@ -17,12 +17,12 @@
   .hero {
     display: flex;
     flex-direction: column; /* Stack children vertically */
-    justify-content: center; /* Center content vertically */
+    justify-content: flex-start; /* Center content vertically */
     align-items: flex-start; /* Align content to the left */
     height: 100vh;
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     color: white;
-    padding: 0 10%; /* Add padding to the left */
+    padding: 2rem; /* Add padding to the left */
   }
 
   .hero-title {
@@ -35,7 +35,7 @@
   }
 
   .hero-description {
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-top: 1rem; /* Add space between the title and description */
     color: rgba(255, 255, 255, 0.8);
     font-family: "Inter", sans-serif;
@@ -56,25 +56,26 @@
   }
 
   .fast {
-    animation: moveRight 6s infinite; /* Move "fast" to the right */
+    animation: moveRight 7s infinite; /* Move "fast" to the right */
+    font-weight: bold;
   }
 
   .stuff {
-    animation: moveLeft 6s infinite; /* Move "stuff" to the left */
+    animation: moveLeft 7s infinite; /* Move "stuff" to the left */
   }
 
   @keyframes moveRight {
     0%,
-    20% {
+    38% {
       transform: translateX(0); /* Start position: before "stuff" */
     }
     40%,
-    60% {
+    93% {
       transform: translateX(
         calc(100% + 0.75rem)
       ); /* Move to the right, after "stuff" */
     }
-    80%,
+    95%,
     100% {
       transform: translateX(0); /* Return to start position */
     }
@@ -82,16 +83,16 @@
 
   @keyframes moveLeft {
     0%,
-    20% {
+    38% {
       transform: translateX(0); /* Start position: after "fast" */
     }
     40%,
-    60% {
+    93% {
       transform: translateX(
         calc(-90% - 0.5rem)
       ); /* Move to the left, before "fast" */
     }
-    80%,
+    95%,
     100% {
       transform: translateX(0); /* Return to start position */
     }
@@ -112,16 +113,16 @@
 
     @keyframes moveRight {
       0%,
-      20% {
+      38% {
         transform: translateX(0);
       }
       40%,
-      60% {
+      93% {
         transform: translateX(
           calc(100% + 0.75rem)
         ); /* Adjusted for smaller screens */
       }
-      80%,
+      95%,
       100% {
         transform: translateX(0);
       }
@@ -129,16 +130,16 @@
 
     @keyframes moveLeft {
       0%,
-      20% {
+      38% {
         transform: translateX(0);
       }
       40%,
-      60% {
+      93% {
         transform: translateX(
           calc(-90% - 0.75rem)
         ); /* Adjusted for smaller screens */
       }
-      80%,
+      95%,
       100% {
         transform: translateX(0);
       }
@@ -161,14 +162,14 @@
 
     @keyframes moveRight {
       0%,
-      20% {
+      38% {
         transform: translateX(0);
       }
       40%,
-      60% {
+      93% {
         transform: translateX(calc(100% + 0.5rem)); /* Adjusted for mobile */
       }
-      80%,
+      95%,
       100% {
         transform: translateX(0);
       }
@@ -176,14 +177,14 @@
 
     @keyframes moveLeft {
       0%,
-      20% {
+      38% {
         transform: translateX(0);
       }
       40%,
-      60% {
+      93% {
         transform: translateX(calc(-90% - 0.5rem)); /* Adjusted for mobile */
       }
-      80%,
+      95%,
       100% {
         transform: translateX(0);
       }
