@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
+import Cards from "../components/Cards.astro";
 import Aboutme from "../components/Aboutme.astro";
 import Headshot from "../assets/headshot.webp";
 
@@ -14,6 +15,7 @@ const description =
 
 <Layout>
   <Hero />
+  <Cards />
   <Aboutme
     headshotUrl={Headshot}
     name={name}
