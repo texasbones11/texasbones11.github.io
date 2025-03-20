@@ -4,17 +4,21 @@
 
 <section class="cards-section">
   <div class="cards-container">
-    <a href="/page1" class="card">
-      <h2>Card 1</h2>
+    <a href="../pages/page1" class="card">
+      <h2>Scaling Infrastructure for Rapid Growth</h2>
       <p>This is the first card. Click to go to Page 1.</p>
     </a>
-    <a href="/page2" class="card">
-      <h2>Card 2</h2>
+    <a href="../pages/page2" class="card">
+      <h2>Driving Security as a Business Enabler</h2>
       <p>This is the second card. Click to go to Page 2.</p>
     </a>
-    <a href="/page3" class="card">
-      <h2>Card 3</h2>
+    <a href="../pages/page3" class="card">
+      <h2>Leading a High-Performing DevOps Team</h2>
       <p>This is the third card. Click to go to Page 3.</p>
+    </a>
+    <a href="../pages/page4" class="card">
+      <h2>Automating Manual Processes</h2>
+      <p>This is the fourth card. Click to go to Page 4.</p>
     </a>
   </div>
 </section>
@@ -22,7 +26,7 @@
 <style>
   .cards-section {
     padding: 2rem;
-    height: 75vh;
+    background: #f9f9f9; /* Optional: Add a background color */
   }
 
   .cards-container {
@@ -30,6 +34,8 @@
     flex-wrap: wrap;
     gap: 1.5rem;
     justify-content: center;
+    max-width: 1200px; /* Limit the width of the container */
+    margin: 0 auto; /* Center the container horizontally */
   }
 
   .card {
@@ -40,6 +46,7 @@
     padding: 1.5rem;
     text-decoration: none;
     color: #333;
+    height: 300px; /* Set a fixed height for the cards */
     transition:
       transform 0.3s ease,
       box-shadow 0.3s ease;
@@ -62,13 +69,13 @@
 
   @media (max-width: 768px) {
     .card {
-      flex: 1 1 calc(50% - 1.5rem);
+      flex: 1 1 calc(50% - 1.5rem); /* Two cards per row on tablets */
     }
   }
 
   @media (max-width: 480px) {
     .card {
-      flex: 1 1 100%;
+      flex: 1 1 100%; /* One card per row on mobile */
     }
   }
 </style>
