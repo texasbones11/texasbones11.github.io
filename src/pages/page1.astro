@@ -1,5 +1,24 @@
 ---
+import Casestudy from "../components/Casestudy.astro";
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
+import Casepic from "../assets/background.svg";
 
+// Define the props for the Hero component
+//const headshotUrl = "../assets/headshot.webp"; // Path to your headshot image
+const name = "Scaling Infrastructure for Rapid Growth";
+const tagline =
+  "Learn how I’ve helped companies scale their infrastructure to support rapid growth and ensure reliability.";
+const description =
+  "Scaling infrastructure is critical for businesses experiencing rapid growth. In this article, I’ll share my approach to designing and implementing scalable systems that can handle increased demand without compromising performance.";
 ---
 
-<h1>This is page 1</h1>
+<Layout>
+  <Casestudy
+    casepicUrl={Casepic}
+    name={name}
+    tagline={tagline}
+    description={description}
+  />
+</Layout>
+<Footer />
