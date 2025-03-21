@@ -45,6 +45,10 @@ A `.astro` file contains three sections.
 
 The `src/pages/index.astro` file contains references to the layout and components.
 
+### Routing
+
+Pages here `src/pages/page1` are referenced like this: `<a href="/page1" >`
+
 ### Layout
 
 The `src/layouts/Layout.astro` file contains the header, body and footer sections. This is referenced and wraps the content in the `index.astro` file in the `<body>` section.
