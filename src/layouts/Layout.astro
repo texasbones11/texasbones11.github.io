@@ -1,5 +1,8 @@
 ---
 import "../styles/global.css";
+const title = `Will Jones | Delivering high-impact technology solutions`;
+const description = `Will Jones: DevOps Security Leader with 10+ years of experience building secure, 
+	scalable systems. Focused on driving innovation and business growth.`;
 ---
 
 <!doctype html>
@@ -28,14 +31,19 @@ import "../styles/global.css";
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
       rel="stylesheet"
     />
-
-    <meta
-      name="description"
-      content="Homepage for Will Jones's tech projects."
-    />
+    <title>{title}</title>
+    <meta name="author" content="WIll Jones" />
+    <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>About Will Jones</title>
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta
+      property="og:image"
+      content="https://texasbones11.github.io/headhsot.jpeg"
+    />
+    <meta property="og:url" content="https://texasbones11.github.io" />
   </head>
   <body>
     <slot />
