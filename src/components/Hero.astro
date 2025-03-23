@@ -3,21 +3,25 @@
 ---
 
 <section class="hero">
-  <h1 class="hero-title">I'm Will Jones</h1>
-  <p class="hero-description">
-    I build
-    <span class="text-container">
-      <span class="animated-text fast">fast</span>
-      <span class="animated-text stuff">stuff</span>
-    </span>
-  </p>
+  <div class="hero-content">
+    <h1 class="hero-title">I'm Will Jones</h1>
 
-  <!-- Bullet Points -->
-  <ul class="experience-list">
-    <li>15+ years driving tech innovation</li>
-    <li>5+ years leading impactful teams</li>
-    <li>Transforming great ideas into reality</li>
-  </ul>
+    <p class="hero-description">
+      I build
+      <span class="text-container">
+        <span class="animated-text fast">fast</span>
+        <span class="animated-text stuff">stuff</span>
+      </span>
+      - driving innovation and delivering impact
+    </p>
+
+    <!-- Bullet Points -->
+    <ul class="experience-list">
+      <li>5+ years leading high-performing teams</li>
+      <li>15+ years designing and building secure, scalable systems</li>
+      <li>Transforming great ideas into reality</li>
+    </ul>
+  </div>
 </section>
 
 <style>
@@ -26,26 +30,63 @@
     flex-direction: column;
     justify-content: flex-start; /* Align content to the top */
     align-items: flex-start; /* Align content to the left */
-    padding: 2rem; /* Add padding to the top and left */
+    padding: 4rem; /* Add padding to the top and left */
+    position: relative;
+    overflow: hidden; /* Ensure the blurred edges don't overflow */
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../assets/server-room-1.webp"); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px); /* Adjust blur intensity */
+    z-index: -1; /* Place the background behind the content */
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%; /* Adjust the fade height */
     background: linear-gradient(
       to bottom,
-      #e8f0f7 0%,
-      #e8f0f7 50%,
-      #f9f9f9 90%,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0) 30%,
+      #f9f9f9 80%,
       #f9f9f9 100%
-    ); /* Optional: Add a background */
-    color: #2e2e2e;
+    ); /* Fade to white */
+    z-index: 0; /* Place the gradient above the background */
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1; /* Place the content above the background and gradient */
+    /*text-align: center;*/
+    color: #2e2e2e; /* Dark gray font color */
+    padding: 2rem;
   }
 
   .hero-title {
     font-size: 4rem; /* Adjusted font size */
     font-weight: bold;
+    /*text-align: center;*/
     margin: 0;
     line-height: 1.1;
-    max-width: 80%; /* Prevent text from stretching too far */
+    max-width: 100%; /* Prevent text from stretching too far */
   }
 
   .hero-description {
+    position: relative;
+    /*text-align: center;*/
+    align-items: flex-start; /* Align content to the left */
     font-size: 1.5rem; /* Adjusted font size */
     margin-top: 1rem; /* Add space between the title and description */
   }
@@ -55,7 +96,7 @@
     align-items: center;
     position: relative;
     overflow: visible; /* Allow overflow to prevent cutting off text */
-    gap: 0.5rem; /* Add space between "fast" and "stuff" */
+    gap: 0.3rem; /* Add space between "fast" and "stuff" */
   }
 
   .animated-text {
@@ -95,7 +136,7 @@
     40%,
     93% {
       transform: translateX(
-        calc(100% + 0.75rem)
+        calc(95% + 0.65rem)
       ); /* Move to the right, after "stuff" */
     }
     95%,
@@ -112,7 +153,7 @@
     40%,
     93% {
       transform: translateX(
-        calc(-90% - 0.5rem)
+        calc(-88% - 0.5rem)
       ); /* Move to the left, before "fast" */
     }
     95%,
@@ -131,7 +172,7 @@
     }
 
     .text-container {
-      gap: 0.75rem; /* Adjust spacing for smaller screens */
+      gap: 0.3rem; /* Adjust spacing for smaller screens */
     }
 
     .experience-list {
@@ -146,7 +187,7 @@
       40%,
       93% {
         transform: translateX(
-          calc(100% + 0.75rem)
+          calc(95% + 0.5rem)
         ); /* Adjusted for smaller screens */
       }
       95%,
@@ -163,7 +204,7 @@
       40%,
       93% {
         transform: translateX(
-          calc(-90% - 0.75rem)
+          calc(-85% - 0.5rem)
         ); /* Adjusted for smaller screens */
       }
       95%,
@@ -184,7 +225,7 @@
     }
 
     .text-container {
-      gap: 0.5rem; /* Adjust spacing for mobile */
+      gap: 0.3rem; /* Adjust spacing for mobile */
     }
 
     .experience-list {
@@ -198,7 +239,7 @@
       }
       40%,
       93% {
-        transform: translateX(calc(100% + 0.5rem)); /* Adjusted for mobile */
+        transform: translateX(calc(95% + 0.5rem)); /* Adjusted for mobile */
       }
       95%,
       100% {
@@ -213,7 +254,7 @@
       }
       40%,
       93% {
-        transform: translateX(calc(-90% - 0.5rem)); /* Adjusted for mobile */
+        transform: translateX(calc(-85% - 0.5rem)); /* Adjusted for mobile */
       }
       95%,
       100% {
