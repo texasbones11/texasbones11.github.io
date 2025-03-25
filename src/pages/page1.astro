@@ -6,12 +6,27 @@ import Casepic from "../assets/background.svg";
 
 // Define the props for the Hero component
 //const headshotUrl = "../assets/headshot.webp"; // Path to your headshot image
-const name = "Scaling Infrastructure for Rapid Growth";
-const tagline = `Learn how I’ve helped companies scale their infrastructure to support rapid growth 
-and ensure reliability.`;
-const description = `Scaling infrastructure is critical for businesses experiencing rapid growth. In this article, 
-I’ll share my approach to designing and implementing scalable systems that can handle increased demand without 
-compromising performance.`;
+const name = "How I Slashed AWS Costs by 30% Without Sacrificing Performance";
+const tagline = `(A Playbook for Technical Leaders)`;
+const description = `Cloud waste silently drains startup runway. This case study reveals my systematic approach to 
+cutting AWS bills by 30% while improving reliability - turning infrastructure into a competitive advantage.`;
+
+const challenge = `The Challenge: Uncontrolled Cloud Spend`;
+const challengepart1 = `Engineers overprovisioned resources by 3-5X "just in case", wasting $X monthly`;
+const solution = `The Solution: Precision Cost Optimization`;
+const solutionpart1 = `Built a custom cost intelligence platform using AWS Cost Explorer API + Prometheus metrics, identifying 
+three waste patterns: zombie resources (23% of spend), oversized instances (41%), and inefficient data flows. 
+Implemented Terraform modules to safely rightsize 200+ resources during low-traffic windows, with automated 
+rollback triggers if performance dipped below SLO thresholds.`;
+
+const challengepart2 = `No team accountability - cloud spend grew 15% month-over-month`;
+const solutionpart2 = `Created "Cost-Aware Development" culture with real-time spend dashboards in GitHub PRs and 
+weekly engineering cost reviews. Automated budget alerts via Lambda functions when services exceeded 
+allocations. Shifted batch processing to Spot Instances (saving 72% on compute costs) without developers 
+noticing the change.`;
+
+const challengepart3 = `Reactive scaling caused both performance risks and wasted capacity`;
+const picturedescription = `Optimization workflow: (1) Cost visibility dashboard (2) Automated rightsizing (3) Guardrail policies`;
 ---
 
 <Layout>
@@ -20,6 +35,14 @@ compromising performance.`;
     name={name}
     tagline={tagline}
     description={description}
+    challenge={challenge}
+    solution={solution}
+    challengepart1={challengepart1}
+    solutionpart1={solutionpart1}
+    challengepart2={challengepart2}
+    solutionpart2={solutionpart2}
+    challengepart3={challengepart3}
+    picturedescription={picturedescription}
   />
 </Layout>
 <Footer />

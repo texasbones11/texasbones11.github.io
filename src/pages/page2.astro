@@ -1,5 +1,47 @@
 ---
+import Casestudy from "../components/Casestudy.astro";
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
+import Casepic from "../assets/background.svg";
 
+// Define the props for the Hero component
+//const headshotUrl = "../assets/headshot.webp"; // Path to your headshot image
+const name = "From Zero to SOC 2 in 9 Months";
+const tagline = `(A Startup's Blueprint for Enterprise-Grade Security)`;
+const description = `Security compliance unlocks enterprise deals and investor confidence. 
+This case study reveals how I built a security program from scratch that achieved SOC 2 Type 2 
+without slowing product velocity.`;
+
+const challenge = `The Challenge: Security as a Growth Blocker`;
+const challengepart1 = `Missing 80% of required SOC 2 controls, preventing sales to regulated industries`;
+const solution = `The Solution: Compliance as Competitive Advantage`;
+const solutionpart1 = `Designed controls mapping to 156 SOC 2 requirements using AWS Config rules + Terraform for automated evidence collection. 
+Built developer-friendly security tools directly into CI/CD pipelines (Snyk for vuln scanning, GitGuardian for secrets detection). 
+Created self-service compliance documentation portal reducing audit prep time by 65%.`;
+
+const challengepart2 = `Engineers viewed security as "the compliance team's problem"`;
+const solutionpart2 = `Implemented "Security Champions" program with incentives for fixing vulnerabilities. 
+Integrated security metrics into engineering dashboards (MTTR for critical vulns, % of compliant deployments). 
+Resulted in 90% of high-severity issues being fixed within SLA without security team intervention.`;
+
+const challengepart3 = `Manual processes couldn't scale with company growth`;
+const picturedescription = `Three-pillar framework: (1) Automated controls (2) Continuous monitoring (3) Developer empowerment`;
 ---
 
-<h1>This is page 2</h1>
+<Layout>
+  <Casestudy
+    casepicUrl={Casepic}
+    name={name}
+    tagline={tagline}
+    description={description}
+    challenge={challenge}
+    solution={solution}
+    challengepart1={challengepart1}
+    solutionpart1={solutionpart1}
+    challengepart2={challengepart2}
+    solutionpart2={solutionpart2}
+    challengepart3={challengepart3}
+    picturedescription={picturedescription}
+  />
+</Layout>
+<Footer />

@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
+import type { string } from "astro:schema";
 
 // Define the props for the component
 export interface Props {
@@ -8,10 +9,31 @@ export interface Props {
   name: string;
   tagline: string;
   description: string;
+  challenge: string;
+  solution: string;
+  challengepart1: string;
+  solutionpart1: string;
+  challengepart2: string;
+  solutionpart2: string;
+  challengepart3: string;
+  picturedescription: string;
 }
 
 // Destructure the props
-const { casepicUrl, name, tagline, description } = Astro.props;
+const {
+  casepicUrl,
+  name,
+  tagline,
+  description,
+  challenge,
+  solution,
+  challengepart1,
+  solutionpart1,
+  challengepart2,
+  solutionpart2,
+  challengepart3,
+  picturedescription,
+} = Astro.props;
 ---
 
 <!-- Back Button Container -->
@@ -40,31 +62,29 @@ const { casepicUrl, name, tagline, description } = Astro.props;
         loading={"eager"}
       />
       <p class="diagram-caption">
-        Figure 1: High-level architecture for scalable infrastructure.
+        {picturedescription}
       </p>
     </div>
 
-    <h2>Key Strategies</h2>
+    <h2>{challenge}</h2>
     <ul>
       <li>
-        **Modular Architecture**: Breaking down systems into smaller,
-        independent components.
+        {challengepart1}
       </li>
       <li>
-        **Automation**: Implementing CI/CD pipelines to streamline deployments.
+        {challengepart2}
       </li>
       <li>
-        **Monitoring and Alerts**: Using tools like Prometheus and Grafana to
-        track system health.
+        {challengepart3}
       </li>
     </ul>
 
-    <h2>Case Study</h2>
+    <h2>{solution}</h2>
     <p>
-      One of my recent projects involved scaling the infrastructure for a SaaS
-      platform that grew from 10,000 to 1,000,000 users in under a year. By
-      leveraging cloud-native technologies and optimizing database performance,
-      we achieved 99.9% uptime and reduced latency by 40%.
+      {solutionpart1}
+    </p>
+    <p>
+      {solutionpart2}
     </p>
   </div>
 </section>

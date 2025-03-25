@@ -1,24 +1,71 @@
 ---
-// No props or dynamic data needed for this example
+import awsCostImage from "../assets/background.svg";
+import soc2Image from "../assets/background.svg";
+import k8sImage from "../assets/background.svg";
+import aiDevopsImage from "../assets/background.svg";
+import { Image } from "astro:assets";
 ---
 
 <section class="cards-section">
   <div class="cards-container">
     <a href="/page1" class="card">
-      <h2>Scaling Infrastructure for Rapid Growth</h2>
-      <p>This is the first card. Click to go to Page 1.</p>
+      <div class="image-container">
+        <Image
+          src={awsCostImage}
+          alt="Cloud cost optimization"
+          width={300}
+          height={160}
+        />
+      </div>
+      <div class="text-content">
+        <h2>How I Slashed AWS Costs by 30% Without Sacrificing Performance</h2>
+        <p>(A Playbook for Technical Leaders)</p>
+      </div>
     </a>
+
     <a href="/page2" class="card">
-      <h2>Driving Security as a Business Enabler</h2>
-      <p>This is the second card. Click to go to Page 2.</p>
+      <div class="image-container">
+        <Image
+          src={soc2Image}
+          alt="SOC 2 compliance"
+          width={300}
+          height={160}
+        />
+      </div>
+      <div class="text-content">
+        <h2>From Zero to SOC 2 in 9 Months</h2>
+        <p>(A Startup's Blueprint for Enterprise-Grade Security)</p>
+      </div>
     </a>
+
     <a href="/page3" class="card">
-      <h2>Leading a High-Performing DevOps Team</h2>
-      <p>This is the third card. Click to go to Page 3.</p>
+      <div class="image-container">
+        <Image
+          src={k8sImage}
+          alt="Kubernetes scaling"
+          width={300}
+          height={160}
+        />
+      </div>
+      <div class="text-content">
+        <h2>Scaling Kubernetes to Enterprise-Grade Reliability</h2>
+        <p>(A Battle-Tested Approach to Cloud Infrastructure)</p>
+      </div>
     </a>
+
     <a href="/page4" class="card">
-      <h2>Automating Manual Processes</h2>
-      <p>This is the fourth card. Click to go to Page 4.</p>
+      <div class="image-container">
+        <Image
+          src={aiDevopsImage}
+          alt="AI DevOps automation"
+          width={300}
+          height={160}
+        />
+      </div>
+      <div class="text-content">
+        <h2>AI-Powered DevOps: Engineering Productivity at Scale</h2>
+        <p>(How Automation Can 10X Your Team's Output)</p>
+      </div>
     </a>
   </div>
 </section>
@@ -26,7 +73,7 @@
 <style>
   .cards-section {
     padding: 2rem;
-    background: #f9f9f9; /* Optional: Add a background color */
+    background: #f9f9f9;
   }
 
   .cards-container {
@@ -34,8 +81,8 @@
     flex-wrap: wrap;
     gap: 1.5rem;
     justify-content: center;
-    max-width: 1200px; /* Limit the width of the container */
-    margin: 0 auto; /* Center the container horizontally */
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
   .card {
@@ -45,8 +92,8 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 1.5rem;
     text-decoration: none;
-    color: #333;
-    height: 300px; /* Set a fixed height for the cards */
+    color: inherit;
+    height: 300px;
     transition:
       transform 0.3s ease,
       box-shadow 0.3s ease;
@@ -57,25 +104,51 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   }
 
-  .card h2 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+  .image-container {
+    height: 160px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f0f0;
   }
 
-  .card p {
-    font-size: 1rem;
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .text-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .text-content h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: #333;
+  }
+
+  .text-content p {
+    font-size: 0.95rem;
     color: #666;
+    margin-top: auto;
   }
 
   @media (max-width: 768px) {
     .card {
-      flex: 1 1 calc(50% - 1.5rem); /* Two cards per row on tablets */
+      flex: 1 1 calc(50% - 1.5rem);
     }
   }
 
   @media (max-width: 480px) {
     .card {
-      flex: 1 1 100%; /* One card per row on mobile */
+      flex: 1 1 100%;
+      height: 380px;
     }
   }
 </style>
