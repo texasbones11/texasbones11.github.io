@@ -1,0 +1,47 @@
+---
+import Casestudy from "../components/Casestudy.astro";
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
+import Casepic from "../assets/background.svg";
+
+// Define the props for the Hero component
+//const headshotUrl = "../assets/headshot.webp"; // Path to your headshot image
+const name = "Cloud Cost Control Without Compromise";
+const tagline = `30% AWS Savings While Improving Reliability`;
+const description = `When our growing cloud bill threatened to impact the bottom line, I engineered a solution 
+that reduced costs by 30% while making our infrastructure more resilient - a win-win for engineering and finance.`;
+
+const challenge = `The Cost Problem We Faced`;
+const challengepart1 = `Wasted spend: Servers were consistently underutilized (often below 30% capacity)`;
+const challengepart2 = `Expensive development environments using premium production-grade resources`;
+const challengepart3 = `Paying for peak capacity around the clock, even during low-traffic periods`;
+
+const solution = `How We Solved It`;
+const solutionpart1 = `Consolidated services into Kubernetes, increasing server utilization from 30% to 
+65%+ without performance impact`;
+const solutionpart2 = `Right-sized environments: Used cost-appropriate instances for development/testing, 
+reserving premium capacity for production`;
+const solutionpart3 = `Implemented intelligent autoscaling so infrastructure costs automatically align 
+with actual usage patterns`;
+
+const picturedescription = `The results: Lower costs (down arrow) + Higher efficiency (up arrow) + 
+Maintained reliability (checkmark)`;
+---
+
+<Layout>
+  <Casestudy
+    casepicUrl={Casepic}
+    name={name}
+    tagline={tagline}
+    description={description}
+    challenge={challenge}
+    solution={solution}
+    challengepart1={challengepart1}
+    solutionpart1={solutionpart1}
+    challengepart2={challengepart2}
+    solutionpart2={solutionpart2}
+    challengepart3={challengepart3}
+    picturedescription={picturedescription}
+  />
+</Layout>
+<Footer />

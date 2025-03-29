@@ -1,0 +1,50 @@
+---
+import Casestudy from "../components/Casestudy.astro";
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
+import Casepic from "../assets/background.svg";
+
+// Define the props for the Hero component
+//const headshotUrl = "../assets/headshot.webp"; // Path to your headshot image
+const name = "Mission-Critical Infrastructure Modernization";
+const tagline = `From Technical Debt to Reliable Foundations in 90 Days`;
+const description = `When your IoT platform processes millions of sensor datapoints daily, infrastructure reliability isn't optional - 
+it's the core of customer trust. This case study shows how I led a zero-downtime migration that future-proofed our platform.`;
+
+const challenge = `The Challenge: Impending EOL and Operational Fragility`;
+const challengepart1 = `Rancher platform approaching end-of-life with no clear upgrade path`;
+const challengepart2 = `Manual deployment processes causing inconsistent environments and deployment bottlenecks`;
+const challengepart3 = `Certificate management and other critical functions handled through error-prone manual processes`;
+
+const solution = `The Solution: Strategic Kubernetes Modernization`;
+const solutionpart1 = `Successfully moved our entire infrastructure from Rancher to Amazon EKS without any downtime - 
+completing the cutover in one carefully planned evening. Introduced codified infrastructure templates (Helm charts) 
+that made deployments 30% more reliable while allowing easy rollbacks. This wasn't just a migration - we built a 
+system designed to automatically handle future upgrades and expansions.`;
+
+const solutionpart2 = `Eliminated entire categories of nighttime alerts by automating certificate renewals, 
+server scaling, and other repetitive tasks. Created standardized deployment processes that reduced configuration 
+errors by 75% and gave developers self-service tools (cutting ops requests by 60%). The best part? Every new 
+automation built on this foundation delivered compounding returns - we saw alert volume drop 83% and kept 
+improving from there.`;
+
+const picturedescription = `Architecture transition diagram showing (1) Legacy Rancher environment (2) New EKS architecture (3) Critical automation components`;
+---
+
+<Layout>
+  <Casestudy
+    casepicUrl={Casepic}
+    name={name}
+    tagline={tagline}
+    description={description}
+    challenge={challenge}
+    solution={solution}
+    challengepart1={challengepart1}
+    solutionpart1={solutionpart1}
+    challengepart2={challengepart2}
+    solutionpart2={solutionpart2}
+    challengepart3={challengepart3}
+    picturedescription={picturedescription}
+  />
+</Layout>
+<Footer />

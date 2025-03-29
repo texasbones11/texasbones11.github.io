@@ -1,0 +1,45 @@
+---
+import Casestudy from "../components/Casestudy.astro";
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
+import Casepic from "../assets/background.svg";
+
+// Define the props for the Hero component
+//const headshotUrl = "../assets/headshot.webp"; // Path to your headshot image
+const name = "AI That Cuts the Busywork";
+const tagline = `How We Freed Engineers to Focus on What Matters`;
+const description = `At scaling startups, every hour wasted on paperwork is an hour not spent building. 
+Here's how we used smart automation to eliminate two of our biggest time-wasters.`;
+
+const challenge = `The Problem: Valuable Hours Lost to Process`;
+const challengepart1 = `Developers and testers spent 15+ hours per sprint just explaining work to each other`;
+const challengepart2 = `Release notes took half a day to write and still missed key details`;
+const challengepart3 = `Our small QA team was drowning in coordination work`;
+
+const solution = `What We Actually Built`;
+const solutionpart1 = `Smart test assistant that reads tickets and suggests test cases automatically, cutting 2/3 
+of those endless "what does this do?" meetings between teams.`;
+const solutionpart2 = `Automatic release notes that turn completed tickets into clear updates for leadership, 
+done in minutes instead of hours with perfect accuracy.`;
+
+const picturedescription = `How it works: (1) AI understands the work done (2) Creates test plans (3) Writes 
+executive updates`;
+---
+
+<Layout>
+  <Casestudy
+    casepicUrl={Casepic}
+    name={name}
+    tagline={tagline}
+    description={description}
+    challenge={challenge}
+    solution={solution}
+    challengepart1={challengepart1}
+    solutionpart1={solutionpart1}
+    challengepart2={challengepart2}
+    solutionpart2={solutionpart2}
+    challengepart3={challengepart3}
+    picturedescription={picturedescription}
+  />
+</Layout>
+<Footer />
