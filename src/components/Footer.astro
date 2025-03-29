@@ -1,10 +1,20 @@
 ---
-// No props or dynamic data needed for this example
+// Static footer component
+// Contains social links and copyright information
+// No props needed as it's not dynamic
 ---
 
+<!-- 
+  Footer Section
+  Contains social media links and copyright notice
+  Sticky positioned at bottom of page
+-->
 <footer class="footer">
   <div class="footer-content">
+    <!-- Call-to-action text -->
     <p class="footer-text">Connect with me:</p>
+
+    <!-- Social media buttons container -->
     <div class="footer-buttons">
       <!-- GitHub Button -->
       <a
@@ -70,36 +80,59 @@
       </a>
     </div>
 
+    <!-- Copyright notice -->
     <p class="copyright-text">© 2025 Will Jones. All rights reserved.</p>
   </div>
 </footer>
 
 <style>
+  /* 
+      Footer base styles
+      Light background with subtle top border
+      Centered content with padding
+    */
   .footer {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 1.5rem;
-    background: #f9f9f9; /* Light background */
-    border-top: 1px solid #e0e0e0; /* Subtle border */
+    background: #f9f9f9;
+    border-top: 1px solid #e0e0e0;
   }
 
+  /* 
+      Footer content container
+      Centers all child elements
+    */
   .footer-content {
     text-align: center;
   }
 
+  /* 
+      Call-to-action text
+      Standard font size with bottom margin
+    */
   .footer-text {
     font-size: 1rem;
     color: #333;
     margin-bottom: 1rem;
   }
 
+  /* 
+      Social buttons container
+      Flex layout with consistent spacing
+    */
   .footer-buttons {
     display: flex;
     gap: 1.5rem;
     justify-content: center;
   }
 
+  /* 
+      Individual social button styles
+      Circular shape with hover effects
+      Accessible contrast colors
+    */
   .footer-button {
     display: flex;
     align-items: center;
@@ -107,28 +140,44 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: #333; /* Dark background for buttons */
-    color: white; /* White icons */
+    background: #333;
+    color: white;
     transition:
       background 0.3s ease,
       transform 0.3s ease;
   }
 
+  /* 
+      Button hover state
+      Darker background with subtle lift effect
+    */
   .footer-button:hover {
-    background: #555; /* Darker background on hover */
-    transform: translateY(-2px); /* Slight lift on hover */
+    background: #555;
+    transform: translateY(-2px);
   }
 
+  /* 
+      SVG icon sizing
+      Matches button dimensions
+    */
   .footer-button svg {
     width: 24px;
     height: 24px;
   }
 
+  /* 
+      Copyright text
+      Additional padding for separation
+    */
   .copyright-text {
     padding: 1.5rem;
     text-align: center;
   }
 
+  /* 
+      Mobile responsive adjustments
+      Smaller buttons and spacing on small screens
+    */
   @media (max-width: 480px) {
     .footer-buttons {
       gap: 1rem;

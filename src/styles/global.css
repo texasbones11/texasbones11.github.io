@@ -1,9 +1,20 @@
-/* Reset some default styles */
+/* 
+  Global Style Reset
+  Removes default browser styling to ensure consistent baseline
+  across different browsers and devices
+*/
 body, h1, h2, h3, p {
     margin: 0;
     padding: 0;
   }
   
+  /*
+    Base Body Styles
+    Sets default typography and colors for the entire application
+    - Uses Outfit font family (clean, modern sans-serif)
+    - Establishes comfortable line height for readability
+    - Light background with dark gray text for optimal contrast
+  */
   body {
     font-family: 'Outfit', sans-serif;
     line-height: 1.6;

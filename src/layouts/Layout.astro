@@ -1,5 +1,9 @@
 ---
+// Base layout component for all pages
+// Imports global styles and sets default metadata
 import "../styles/global.css";
+
+// Default SEO metadata
 const title = `Will Jones | Delivering high-impact technology solutions`;
 const description = `Will Jones: DevOps Security Leader with 10+ years of experience building secure, 
 	scalable systems. Focused on driving innovation and business growth.`;
@@ -8,7 +12,11 @@ const description = `Will Jones: DevOps Security Leader with 10+ years of experi
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) - Moved to Partytown -->
+    <!-- 
+      Google Analytics (via Partytown)
+      Moved to web worker for performance
+      Tracks page views while minimizing main thread impact
+    -->
     <script
       type="text/partytown"
       async
@@ -22,9 +30,18 @@ const description = `Will Jones: DevOps Security Leader with 10+ years of experi
       gtag("config", "G-HMRF4FY5MH");
     </script>
 
-    <!-- Meta tags -->
+    <!-- 
+      Essential Meta Tags
+      Character encoding and responsive viewport
+    -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 
+      Font Loading
+      Preconnects to Google Fonts for performance
+      Loads Outfit font family with print-display swap
+    -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -33,12 +50,20 @@ const description = `Will Jones: DevOps Security Leader with 10+ years of experi
       media="print"
       onload="this.media='all'"
     />
+
+    <!-- 
+      SEO Meta Tags
+      Title and description from frontmatter variables
+    -->
     <title>{title}</title>
     <meta name="author" content="WIll Jones" />
     <meta name="description" content={description} />
     <link rel="icon" type="image/png" href="/rocket.png" />
 
-    <!-- Open Graph Tags -->
+    <!-- 
+      Open Graph/Social Media Meta Tags
+      Ensures proper display when shared on social platforms
+    -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta
@@ -47,11 +72,20 @@ const description = `Will Jones: DevOps Security Leader with 10+ years of experi
     />
     <meta property="og:url" content="https://texasbones11.github.io" />
   </head>
+
+  <!-- 
+    Body Content
+    Slot for page-specific content injection
+  -->
   <body>
     <slot />
   </body>
 </html>
 
+<!-- 
+  Base Reset Styles
+  Ensures consistent starting point across browsers
+-->
 <style>
   html,
   body {

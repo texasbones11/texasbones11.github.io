@@ -1,5 +1,6 @@
 ---
-// No props or dynamic data needed for this example
+// This is a static hero component that doesn't require any props or dynamic data
+// It features an animated text effect and responsive design
 ---
 
 <section class="hero">
@@ -9,13 +10,14 @@
     <p class="hero-description">
       I build
       <span class="text-container">
+        <!-- Animated text elements that will swap positions -->
         <span class="animated-text fast">fast</span>
         <span class="animated-text stuff">stuff</span>
       </span>
       - driving innovation and delivering impact
     </p>
 
-    <!-- Bullet Points -->
+    <!-- Bullet Points - Key experience highlights -->
     <ul class="experience-list">
       <li>10+ years designing and building secure, scalable systems</li>
       <li>5+ years leading high-performing teams</li>
@@ -25,16 +27,18 @@
 </section>
 
 <style>
+  /* Hero section base styles */
   .hero {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Align content to the top */
-    align-items: flex-start; /* Align content to the left */
-    padding: 4rem; /* Add padding to the top and left */
+    justify-content: flex-start; /* Content aligned to top */
+    align-items: flex-start; /* Content aligned to left */
+    padding: 4rem; /* Generous padding for desktop */
     position: relative;
-    overflow: hidden; /* Ensure the blurred edges don't overflow */
+    overflow: hidden; /* Contain blurred background edges */
   }
 
+  /* Blurred background image effect */
   .hero::before {
     content: "";
     position: absolute;
@@ -42,147 +46,151 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("../assets/background-tech.webp"); /* Replace with your image path */
+    background-image: url("../assets/background-tech.webp"); /* Tech-themed background */
     background-size: cover;
     background-position: center;
-    filter: blur(10px); /* Adjust blur intensity */
-    z-index: -1; /* Place the background behind the content */
+    filter: blur(10px); /* Creates the blurred effect */
+    z-index: -1; /* Ensures background stays behind content */
   }
 
+  /* Gradient fade effect at bottom */
   .hero::after {
     content: "";
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 50%; /* Adjust the fade height */
+    height: 50%; /* Covers bottom half of hero */
     background: linear-gradient(
       to bottom,
       rgba(255, 255, 255, 0) 0%,
       rgba(255, 255, 255, 0) 30%,
       #f9f9f9 80%,
       #f9f9f9 100%
-    ); /* Fade to white */
-    z-index: 0; /* Place the gradient above the background */
+    ); /* Transparent to white gradient */
+    z-index: 0; /* Above background but below content */
   }
 
+  /* Content container positioning */
   .hero-content {
     position: relative;
-    z-index: 1; /* Place the content above the background and gradient */
-    /*text-align: center;*/
-    color: #2e2e2e; /* Dark gray font color */
+    z-index: 1; /* Ensures content appears above effects */
+    color: #2e2e2e; /* Dark gray for readability */
     padding: 2rem;
   }
 
+  /* Main title styling */
   .hero-title {
-    font-size: 4rem; /* Adjusted font size */
+    font-size: 4rem; /* Large, attention-grabbing size */
     font-weight: bold;
-    /*text-align: center;*/
     margin: 0;
     line-height: 1.1;
-    max-width: 100%; /* Prevent text from stretching too far */
+    max-width: 100%; /* Prevents text overflow */
   }
 
+  /* Description text styling */
   .hero-description {
     position: relative;
-    /*text-align: center;*/
-    align-items: flex-start; /* Align content to the left */
-    font-size: 2rem; /* Adjusted font size */
-    margin-top: 1rem; /* Add space between the title and description */
+    font-size: 2rem; /* Prominent but smaller than title */
+    margin-top: 1rem; /* Space between title and description */
   }
 
+  /* Container for animated text elements */
   .text-container {
     display: inline-flex;
     align-items: center;
     position: relative;
-    overflow: visible; /* Allow overflow to prevent cutting off text */
-    gap: 0.3rem; /* Add space between "fast" and "stuff" */
+    overflow: visible; /* Allows animation overflow */
+    gap: 0.3rem; /* Space between animated words */
   }
 
+  /* Base animated text styling */
   .animated-text {
     position: relative;
     display: inline-block;
-    white-space: nowrap; /* Prevent text from wrapping */
+    white-space: nowrap; /* Prevents text wrapping during animation */
   }
 
+  /* Specific styling for "fast" text */
   .fast {
-    animation: moveRight 7s infinite; /* Move "fast" to the right */
+    animation: moveRight 7s infinite; /* Continuous right movement */
     font-weight: bold;
-    color: #2c7a7b;
+    color: #2c7a7b; /* Teal color for emphasis */
   }
 
+  /* Specific styling for "stuff" text */
   .stuff {
-    animation: moveLeft 7s infinite; /* Move "stuff" to the left */
+    animation: moveLeft 7s infinite; /* Continuous left movement */
   }
 
-  /* Experience List Styles */
+  /* Experience list styling */
   .experience-list {
-    margin-top: 1.5rem; /* Space between description and list */
-    padding-left: 1.5rem; /* Indent bullet points */
-    list-style-type: disc; /* Add bullet points */
+    margin-top: 1.5rem; /* Space from description */
+    padding-left: 1.5rem; /* Proper bullet point indentation */
+    list-style-type: disc; /* Traditional bullet points */
     font-size: 1.25rem;
-    color: #2e2e2e; /* Slightly transparent text */
+    color: #2e2e2e;
   }
 
   .experience-list li {
     margin-bottom: 0.5rem; /* Space between list items */
   }
 
+  /* Animation for moving text to the right */
   @keyframes moveRight {
     0%,
     38% {
-      transform: translateX(0); /* Start position: before "stuff" */
+      transform: translateX(0); /* Initial position */
     }
     40%,
     93% {
-      transform: translateX(
-        calc(95% + 0.65rem)
-      ); /* Move to the right, after "stuff" */
+      transform: translateX(calc(95% + 0.65rem)); /* Moves right of "stuff" */
     }
     95%,
     100% {
-      transform: translateX(0); /* Return to start position */
+      transform: translateX(0); /* Returns to start */
     }
   }
 
+  /* Animation for moving text to the left */
   @keyframes moveLeft {
     0%,
     38% {
-      transform: translateX(0); /* Start position: after "fast" */
+      transform: translateX(0); /* Initial position */
     }
     40%,
     93% {
-      transform: translateX(
-        calc(-88% - 0.5rem)
-      ); /* Move to the left, before "fast" */
+      transform: translateX(calc(-88% - 0.5rem)); /* Moves left of "fast" */
     }
     95%,
     100% {
-      transform: translateX(0); /* Return to start position */
+      transform: translateX(0); /* Returns to start */
     }
   }
 
+  /* Tablet responsive adjustments */
   @media (max-width: 768px) {
     .hero {
-      padding: 1rem; /* Add padding to the top and left */
+      padding: 1rem; /* Reduced padding */
     }
 
     .hero-title {
-      font-size: 3rem; /* Adjusted for tablets */
+      font-size: 3rem; /* Smaller heading */
     }
 
     .hero-description {
-      font-size: 1.25rem; /* Adjusted for tablets */
+      font-size: 1.25rem; /* Smaller description */
     }
 
     .text-container {
-      gap: 0.3rem; /* Adjust spacing for smaller screens */
+      gap: 0.3rem; /* Adjusted spacing */
     }
 
     .experience-list {
-      font-size: 1.1rem;
+      font-size: 1.1rem; /* Slightly smaller text */
     }
 
+    /* Adjusted animations for tablet */
     @keyframes moveRight {
       0%,
       38% {
@@ -190,9 +198,7 @@
       }
       40%,
       93% {
-        transform: translateX(
-          calc(95% + 0.5rem)
-        ); /* Adjusted for smaller screens */
+        transform: translateX(calc(95% + 0.5rem));
       }
       95%,
       100% {
@@ -207,9 +213,7 @@
       }
       40%,
       93% {
-        transform: translateX(
-          calc(-85% - 0.5rem)
-        ); /* Adjusted for smaller screens */
+        transform: translateX(calc(-85% - 0.5rem));
       }
       95%,
       100% {
@@ -218,28 +222,30 @@
     }
   }
 
+  /* Mobile responsive adjustments */
   @media (max-width: 480px) {
     .hero {
-      padding: 1rem; /* Add padding to the top and left */
+      padding: 1rem; /* Minimal padding */
     }
 
     .hero-title {
-      font-size: 2.5rem; /* Adjusted for mobile */
-      max-width: 90%; /* Adjust for smaller screens */
+      font-size: 2.5rem; /* Smaller heading */
+      max-width: 90%; /* Prevents overflow */
     }
 
     .hero-description {
-      font-size: 1rem; /* Adjusted for mobile */
+      font-size: 1rem; /* Smaller description */
     }
 
     .text-container {
-      gap: 0.3rem; /* Adjust spacing for mobile */
+      gap: 0.3rem; /* Tight spacing */
     }
 
     .experience-list {
-      font-size: 1rem;
+      font-size: 1rem; /* Smallest readable size */
     }
 
+    /* Adjusted animations for mobile */
     @keyframes moveRight {
       0%,
       38% {
@@ -247,7 +253,7 @@
       }
       40%,
       93% {
-        transform: translateX(calc(95% + 0.5rem)); /* Adjusted for mobile */
+        transform: translateX(calc(95% + 0.5rem));
       }
       95%,
       100% {
@@ -262,7 +268,7 @@
       }
       40%,
       93% {
-        transform: translateX(calc(-85% - 0.5rem)); /* Adjusted for mobile */
+        transform: translateX(calc(-85% - 0.5rem));
       }
       95%,
       100% {
