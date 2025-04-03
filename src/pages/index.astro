@@ -1,0 +1,48 @@
+---
+// Main Landing Page Template
+// Composes key sections of the personal portfolio site
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Cards from "../components/Cards.astro";
+import Aboutme from "../components/Aboutme.astro";
+import Headshot from "../assets/headshot.webp";
+import Footer from "../components/Footer.astro";
+
+/**
+ * Personal Profile Content
+ * Defines reusable content for the About Me section
+ * Structured with:
+ * - Name/title
+ * - Professional tagline
+ * - Detailed bio description
+ */
+const name = "Will Jones";
+const tagline = "DevOps & Security Leader";
+const description = `My experience spans companies of all sizes—from small to large enterprises—giving me a 
+well-rounded perspective on navigating the unique challenges that arise in different 
+organizational environments. I take a hands-on approach to leadership, excelling at hiring, 
+mentoring, and developing diverse teams, fostering a culture of innovation, and ensuring 
+alignment across technical and business objectives. I'm committed to using the latest innovations to stay ahead of industry shifts, improve operational 
+efficiency, and deliver exceptional product outcomes.`;
+---
+
+<!-- 
+  Page Composition
+  Uses Layout component for consistent page structure
+  Organizes content into distinct visual sections:
+  1. Hero banner (attention-grabbing introduction)
+  2. Cards grid (highlight key capabilities/case studies)
+  3. About Me (personal introduction and bio)
+  4. Footer (site-wide navigation and contact)
+-->
+<Layout>
+  <Hero />
+  <Cards />
+  <Aboutme
+    headshotUrl={Headshot}
+    name={name}
+    tagline={tagline}
+    description={description}
+  />
+</Layout>
+<Footer />

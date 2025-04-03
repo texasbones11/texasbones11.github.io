@@ -1,0 +1,175 @@
+---
+// Import placeholder images (replace with actual images in production)
+// Using Astro's optimized Image component for better performance
+import awsCostImage from "../assets/ec2-scaling.webp";
+import soc2Image from "../assets/soc2-fast.webp";
+import k8sImage from "../assets/rancher-to-kubernetes.webp";
+import aiDevopsImage from "../assets/ai-communication.webp";
+import { Image } from "astro:assets";
+---
+
+<!-- 
+  Feature Cards Section
+  Displays clickable cards in a responsive grid layout
+  Each card contains an image, heading, and descriptive text
+  Links to different service pages
+-->
+<section class="cards-section">
+  <div class="cards-container">
+    <!-- SOC 2 Compliance Card -->
+    <a href="/modernsoc2" class="card">
+      <div class="image-container">
+        <Image
+          src={soc2Image}
+          alt="Modern SOC 2 compliance"
+          width={300}
+          height={300}
+        />
+      </div>
+      <div class="text-content">
+        <h2>Building Trust While Shipping Code Fast</h2>
+        <p>SOC 2 Compliance Without Compromising Innovation</p>
+      </div>
+    </a>
+
+    <!-- Cloud Cost Savings Card -->
+    <a href="/cloudcostsaving" class="card">
+      <div class="image-container">
+        <Image
+          src={awsCostImage}
+          alt="Cloud cost saving"
+          width={300}
+          height={300}
+        />
+      </div>
+      <div class="text-content">
+        <h2>Cloud Cost Control Without Compromise</h2>
+        <p>30% AWS Savings While Improving Reliability</p>
+      </div>
+    </a>
+
+    <!-- Kubernetes Migration Card -->
+    <a href="/kubernetesmigration" class="card">
+      <div class="image-container">
+        <Image
+          src={k8sImage}
+          alt="Kubernetes Migration"
+          width={300}
+          height={300}
+        />
+      </div>
+      <div class="text-content">
+        <h2>Mission-Critical Infrastructure Modernization</h2>
+        <p>From Technical Debt to Reliable Foundations in 90 Days</p>
+      </div>
+    </a>
+
+    <!-- AI Efficiency Card -->
+    <a href="/aiefficiency" class="card">
+      <div class="image-container">
+        <Image
+          src={aiDevopsImage}
+          alt="AI Efficiency in DevOps"
+          width={300}
+          height={300}
+        />
+      </div>
+      <div class="text-content">
+        <h2>AI That Cuts the Busywork</h2>
+        <p>How We Freed Engineers to Focus on What Matters</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<style>
+  /* Base section styling with light background */
+  .cards-section {
+    padding: 2rem;
+    background: #f9f9f9;
+  }
+
+  /* Flex container for responsive card grid */
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Individual card styling with hover effects */
+  .card {
+    flex: 1 1 calc(33.333% - 1.5rem);
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  /* Hover state with elevation effect */
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Container for card images with fixed aspect ratio */
+  .image-container {
+    height: 300px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f0f0;
+  }
+
+  /* Ensure images fill container properly */
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Text content area with flexible spacing */
+  .text-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Card heading style */
+  .text-content h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: #333;
+  }
+
+  /* Card description text style */
+  .text-content p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-top: auto;
+  }
+
+  /* Tablet layout - 2 cards per row */
+  @media (max-width: 768px) {
+    .card {
+      flex: 1 1 calc(50% - 1.5rem);
+    }
+  }
+
+  /* Mobile layout - single column */
+  @media (max-width: 480px) {
+    .card {
+      flex: 1 1 100%;
+    }
+  }
+</style>

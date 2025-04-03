@@ -1,0 +1,94 @@
+---
+// Base layout component for all pages
+// Imports global styles and sets default metadata
+import "../styles/global.css";
+
+// Default SEO metadata
+const title = `Will Jones | Delivering high-impact technology solutions`;
+const description = `Will Jones: DevOps Security Leader with 10+ years of experience building secure, 
+	scalable systems. Focused on driving innovation and business growth.`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- 
+      Google Analytics (via Partytown)
+      Moved to web worker for performance
+      Tracks page views while minimizing main thread impact
+    -->
+    <script
+      type="text/partytown"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-HMRF4FY5MH"></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-HMRF4FY5MH");
+    </script>
+
+    <!-- 
+      Essential Meta Tags
+      Character encoding and responsive viewport
+    -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 
+      SEO Meta Tags
+      Title and description from frontmatter variables
+    -->
+    <title>{title}</title>
+    <meta name="author" content="Will Jones" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/running.png" />
+
+    <!-- 
+	  Preload Fonts
+	  Ensures text renders with proper font weight and style
+	-->
+    <link
+      rel="preload"
+      href="/fonts/outfit-variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <!-- 
+      Open Graph/Social Media Meta Tags
+      Ensures proper display when shared on social platforms
+    -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta
+      property="og:image"
+      content="https://texasbones11.github.io/headshot.jpg"
+    />
+    <meta property="og:url" content="https://texasbones11.github.io" />
+  </head>
+
+  <!-- 
+    Body Content
+    Slot for page-specific content injection
+  -->
+  <body>
+    <slot />
+  </body>
+</html>
+
+<!-- 
+  Base Reset Styles
+  Ensures consistent starting point across browsers
+-->
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>

@@ -1,0 +1,279 @@
+---
+// This is a static hero component that doesn't require any props or dynamic data
+// It features an animated text effect and responsive design
+---
+
+<section class="hero">
+  <div class="hero-content">
+    <h1 class="hero-title">I'm Will Jones</h1>
+
+    <p class="hero-description">
+      I build
+      <span class="text-container">
+        <!-- Animated text elements that will swap positions -->
+        <span class="animated-text fast">fast</span>
+        <span class="animated-text stuff">stuff</span>
+      </span>
+      - driving innovation and delivering impact
+    </p>
+
+    <!-- Bullet Points - Key experience highlights -->
+    <ul class="experience-list">
+      <li>10+ years designing and building secure, scalable systems</li>
+      <li>5+ years leading high-performing teams</li>
+      <li>Transforming great ideas into reality</li>
+    </ul>
+  </div>
+</section>
+
+<style>
+  /* Hero section base styles */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Content aligned to top */
+    align-items: flex-start; /* Content aligned to left */
+    padding: 4rem; /* Generous padding for desktop */
+    position: relative;
+    overflow: hidden; /* Contain blurred background edges */
+  }
+
+  /* Blurred background image effect */
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../assets/background-tech.webp"); /* Tech-themed background */
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px); /* Creates the blurred effect */
+    z-index: -1; /* Ensures background stays behind content */
+  }
+
+  /* Gradient fade effect at bottom */
+  .hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%; /* Covers bottom half of hero */
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0) 30%,
+      #f9f9f9 80%,
+      #f9f9f9 100%
+    ); /* Transparent to white gradient */
+    z-index: 0; /* Above background but below content */
+  }
+
+  /* Content container positioning */
+  .hero-content {
+    position: relative;
+    z-index: 1; /* Ensures content appears above effects */
+    color: #2e2e2e; /* Dark gray for readability */
+    padding: 1.5rem;
+  }
+
+  /* Main title styling */
+  .hero-title {
+    font-size: 4rem; /* Large, attention-grabbing size */
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.1;
+    max-width: 100%; /* Prevents text overflow */
+  }
+
+  /* Description text styling */
+  .hero-description {
+    position: relative;
+    font-size: 2rem; /* Prominent but smaller than title */
+    margin-top: 1rem; /* Space between title and description */
+  }
+
+  /* Container for animated text elements */
+  .text-container {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    overflow: visible; /* Allows animation overflow */
+    gap: 0.3rem; /* Space between animated words */
+  }
+
+  /* Base animated text styling */
+  .animated-text {
+    position: relative;
+    display: inline-block;
+    white-space: nowrap; /* Prevents text wrapping during animation */
+  }
+
+  /* Specific styling for "fast" text */
+  .fast {
+    animation: moveRight 7s infinite; /* Continuous right movement */
+    font-weight: bold;
+    color: #2c7a7b; /* Teal color for emphasis */
+  }
+
+  /* Specific styling for "stuff" text */
+  .stuff {
+    animation: moveLeft 7s infinite; /* Continuous left movement */
+  }
+
+  /* Experience list styling */
+  .experience-list {
+    margin-top: 1.5rem; /* Space from description */
+    padding-left: 1.5rem; /* Proper bullet point indentation */
+    list-style-type: disc; /* Traditional bullet points */
+    font-size: 1.25rem;
+    color: #2e2e2e;
+  }
+
+  .experience-list li {
+    margin-bottom: 0.5rem; /* Space between list items */
+  }
+
+  /* Animation for moving text to the right */
+  @keyframes moveRight {
+    0%,
+    38% {
+      transform: translateX(0); /* Initial position */
+    }
+    40%,
+    93% {
+      transform: translateX(calc(95% + 0.65rem)); /* Moves right of "stuff" */
+    }
+    95%,
+    100% {
+      transform: translateX(0); /* Returns to start */
+    }
+  }
+
+  /* Animation for moving text to the left */
+  @keyframes moveLeft {
+    0%,
+    38% {
+      transform: translateX(0); /* Initial position */
+    }
+    40%,
+    93% {
+      transform: translateX(calc(-88% - 0.5rem)); /* Moves left of "fast" */
+    }
+    95%,
+    100% {
+      transform: translateX(0); /* Returns to start */
+    }
+  }
+
+  /* Tablet responsive adjustments */
+  @media (max-width: 768px) {
+    .hero {
+      padding: 1rem; /* Reduced padding */
+    }
+
+    .hero-title {
+      font-size: 3rem; /* Smaller heading */
+    }
+
+    .hero-description {
+      font-size: 1.25rem; /* Smaller description */
+    }
+
+    .text-container {
+      gap: 0.3rem; /* Adjusted spacing */
+    }
+
+    .experience-list {
+      font-size: 1.1rem; /* Slightly smaller text */
+    }
+
+    /* Adjusted animations for tablet */
+    @keyframes moveRight {
+      0%,
+      38% {
+        transform: translateX(0);
+      }
+      40%,
+      93% {
+        transform: translateX(calc(95% + 0.5rem));
+      }
+      95%,
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes moveLeft {
+      0%,
+      38% {
+        transform: translateX(0);
+      }
+      40%,
+      93% {
+        transform: translateX(calc(-85% - 0.5rem));
+      }
+      95%,
+      100% {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  /* Mobile responsive adjustments */
+  @media (max-width: 480px) {
+    .hero {
+      padding: 1rem; /* Minimal padding */
+    }
+
+    .hero-title {
+      font-size: 2.5rem; /* Smaller heading */
+      max-width: 90%; /* Prevents overflow */
+    }
+
+    .hero-description {
+      font-size: 1rem; /* Smaller description */
+    }
+
+    .text-container {
+      gap: 0.3rem; /* Tight spacing */
+    }
+
+    .experience-list {
+      font-size: 1rem; /* Smallest readable size */
+    }
+
+    /* Adjusted animations for mobile */
+    @keyframes moveRight {
+      0%,
+      38% {
+        transform: translateX(0);
+      }
+      40%,
+      93% {
+        transform: translateX(calc(95% + 0.5rem));
+      }
+      95%,
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes moveLeft {
+      0%,
+      38% {
+        transform: translateX(0);
+      }
+      40%,
+      93% {
+        transform: translateX(calc(-85% - 0.5rem));
+      }
+      95%,
+      100% {
+        transform: translateX(0);
+      }
+    }
+  }
+</style>

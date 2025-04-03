@@ -1,0 +1,61 @@
+---
+// SOC 2 Compliance Case Study
+// Documents security compliance implementation with developer-first approach
+import Casestudy from "../components/Casestudy.astro";
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
+import Casepic from "../assets/soc2-fast.webp";
+
+/**
+ * Case Study Content - Security Compliance
+ * Structured to showcase:
+ * - Compliance challenges in fast-moving environments
+ * - Developer-friendly implementation
+ * - Business impact
+ */
+
+// Hero Section - Compliance Achievement
+const name = "Building Trust While Shipping Code Fast";
+const tagline = `SOC 2 Compliance Without Compromising Innovation`;
+const description = `When enterprise customers demanded security credentials, we delivered - 
+going from zero policies to SOC 2 Type 1 in 6 months and Type 2 within a year, 
+all while maintaining our startup's rapid development pace.`;
+
+// Challenge Section - Compliance Barriers
+const challenge = `The Challenge: Security Without Bureaucracy`;
+const challengepart1 = `No existing security policies or controls, blocking enterprise sales opportunities`;
+const challengepart2 = `Engineering team concerned compliance would slow feature development`;
+const challengepart3 = `Manual processes couldn't support audit demands at our growth rate`;
+
+// Solution Section - Implementation Strategy
+const solution = `The Solution: Developer-First Compliance`;
+const solutionpart1 = `Designed and implemented 76 critical controls (70 security + 6 availability) meeting all 
+trust criteria, using infrastructure-as-code wherever possible to maintain agility. Proved compliance could coexist 
+with modern development practices through careful automation and tool selection.`;
+const solutionpart2 = `Integrated security into existing workflows rather than creating bottlenecks - 
+implemented automated evidence collection, embedded scanning tools in CI/CD, and created 
+self-service audit trails. Resulted in zero delayed releases due to compliance requirements.`;
+---
+
+<!-- 
+  Page Template
+  Uses standard layout wrapper for consistent navigation/header
+  CaseStudy component renders the structured content
+  Footer completes the page
+-->
+<Layout>
+  <Casestudy
+    casepicUrl={Casepic}
+    name={name}
+    tagline={tagline}
+    description={description}
+    challenge={challenge}
+    solution={solution}
+    challengepart1={challengepart1}
+    solutionpart1={solutionpart1}
+    challengepart2={challengepart2}
+    solutionpart2={solutionpart2}
+    challengepart3={challengepart3}
+  />
+</Layout>
+<Footer />

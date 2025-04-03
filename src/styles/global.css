@@ -1,0 +1,45 @@
+/* 
+  Global Style Reset
+  =================
+  Removes default browser styling to ensure consistent baseline
+  across all browsers and devices. This creates a clean slate
+  for consistent styling throughout the application.
+*/
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* 
+  Outfit Font Face Definition
+  ==========================
+  Loads the Outfit variable font with these characteristics:
+  - Supports weights from 100 (thin) to 900 (black)
+  - Modern sans-serif design with excellent readability
+  - Uses WOFF2 format for optimal compression
+  - font-display: swap prevents invisible text during load
+*/
+@font-face {
+    font-family: 'Outfit';
+    src: url('/fonts/outfit-variable.woff2') format('woff2');
+    font-weight: 100 900; /* Variable font range */
+    font-style: normal;
+    font-display: swap; /* Optional: improves loading behavior */
+}
+
+/*
+  Base Body Styles
+  ================
+  Establishes fundamental typography and visual foundation:
+  - Outfit font stack (with system sans-serif fallback)
+  - 1.6 line height for optimal reading comfort
+  - Light neutral background (#f9f9f9) reduces eye strain
+  - Dark gray text (#2e2e2e) provides high contrast while
+    being softer than pure black
+*/
+body {
+    font-family: 'Outfit', sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #2e2e2e;
+}
